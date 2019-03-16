@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "server": "light-server -s . --port=6969"
+    },
+    "dependencies": {
+        "light-server": "^2.6.1"
+    }
+}
