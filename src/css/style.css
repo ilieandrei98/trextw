@@ -21,6 +21,7 @@ header .logo {
 
 header .logo span {
     margin-left: 15px;
+    
     color: #6A7284;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -77,4 +78,87 @@ header .circle {
 .user .arrow:hover {
     color: #6A7284;
     transition: 0.3s ease;
+}
+
+.header .search::before {
+    background-image: url(../assets/search-solid.svg);
+}
+
+.container {
+    display: flex;
+}
+
+.meniu {    
+    width: 17%;
+    height: calc(100vh - 82px);
+    padding-top: 20px;
+    border-right: 2px solid #DEE2EC;
+}
+
+.meniu .option {
+    width: calc(100% - 20px);
+    height: 40px;
+    padding-left: 20px;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.meniu .option:hover {
+    background-color: #F7F9F9;
+    transition: 0.2s ease;
+}
+
+.meniu .option-selected {
+    background-color: #F7F9F9;
+}
+
+.meniu .option .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #55EFC4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.meniu .option-name {
+    margin-left: 10px;
+
+    color: #6A7284;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.meniu .group-title {
+    margin: 20px 0 10px 20px;
+
+    color: #6A7284;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.meniu .add-new-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: calc(100% - 17%);
+    background-color: rgba(236, 240, 241, 0.4);
+
+    overflow-y: scroll;
 }
