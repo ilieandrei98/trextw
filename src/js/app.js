@@ -8,7 +8,7 @@ class App {
             {
                 about: new Layout(new Page('menu.html'), new Page('about.html')),
                 home: new Layout(new Page('menu.html'), new Page('home.html')),
-                default: new Page('menu.html'),
+                default: new Page('general-layout.html'),                
             },
             document.getElementById('router')
         );
