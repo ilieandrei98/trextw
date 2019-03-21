@@ -5,7 +5,7 @@
     </div>
     <div class="mobile-buttons mobile">
         <i class="fas fa-search"></i>
-        <i class="fas fa-bars"></i>
+        <i class="fas fa-bars" onclick="showMeniu()"></i>
     </div>
     <label class="search">
         <input placeholder="Search reports and help" class="sign-up-input">
@@ -17,7 +17,12 @@
     </div>
 </header>
 <div class="container">
-    <div class="meniu">
+    <div id="mobile-meniu" class="meniu mobile-meniu">
+        <div class="big-user">            
+            <img src="src/assets/user-big.png" alt="TS">
+            <a class="name">Turcu Stefanel</a>
+            <a href="#about" class="sign-up-helper-text log-out">Log out</a>
+        </div>
         <div class="option option-selected">
             <div class="circle">
                 <p>T</p>
@@ -49,5 +54,6 @@
             <a href="fdsfgd" class="sign-up-helper-text add-new-group">Add new group</a>
         </div>
     </div>
+    <div id="mobile-meniu" class="overlay mobile-meniu" onclick="closeMeniu()">a</div>
     <div class="content" id="content"></div>
 </div>

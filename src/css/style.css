@@ -108,7 +108,7 @@ header label .sign-up-input {
     display: flex;
 }
 
-header .mobile-buttons i{
+header .mobile-buttons i {
     margin-right: 20px;
     
     color: #6A7284;
@@ -122,6 +122,7 @@ header .mobile-buttons i{
     border-right: 2px solid #DEE2EC;
 
     display: block;
+    background-color: #fff;
 }
 
 @media screen and (max-width: 1248px) { 
@@ -133,6 +134,13 @@ header .mobile-buttons i{
 @media screen and (max-width: 768px) { 
     .meniu {
         display: none;
+        width: 70%;
+        height: calc(100vh - 20px);
+
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
     }
 
     .search {
@@ -162,6 +170,38 @@ header .mobile-buttons i{
 
 .meniu .option-selected {
     background-color: #F7F9F9;
+}
+
+.meniu .big-user {
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .meniu .big-user {
+        display: none;
+    }
+}
+
+.meniu .big-user img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+}
+
+.meniu .big-user .name {
+    margin-bottom: 10px;
+
+    color: #8A8D94;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .meniu .option .circle {
@@ -207,9 +247,30 @@ header .mobile-buttons i{
     justify-content: center;
 }
 
+.container .overlay {
+    display: none;
+    width: 100%;
+    height: 100vh;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    background-color: rgba(106, 114, 132, 0.4);
+}
+
 .content {
     width: calc(100% - 17%);
+    height: auto;
+    min-height: calc(100vh - 82px);
     background-color: rgba(236, 240, 241, 0.4);
 
     overflow-y: scroll;
+}
+
+@media screen and (max-width: 768px) { 
+    .content {
+        width: 100%;
+        min-height: calc(100vh - 62px);
+    }
 }
