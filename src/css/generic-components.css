@@ -67,7 +67,6 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding:50px 150px;
     background-color:#fff;
     box-shadow: 0px 3px 5px rgb(106, 114, 132,0.2);
 }
@@ -101,4 +100,8 @@
     align-items: center;
     background-image: url(../assets/background.svg); 
     background-size: cover; 
+}
+
+.padded-container{
+    padding:50px 150px;
 }
