@@ -1,5 +1,5 @@
 export default class menu {    
-    static showmenu() {
+    static showMenu() {
         var elements = document.getElementsByClassName("mobile-menu");
 
         elements[0].classList.add("animated-in");
@@ -10,7 +10,7 @@ export default class menu {
         }
     }
 
-    static closemenu() {
+    static closeMenu() {
         var elements = document.getElementsByClassName("mobile-menu");
 
         for(var i = 0; i < elements.length; i++) {
