@@ -54,6 +54,8 @@
     width: 200px;
     height: 35px;
     margin: 20px;
+    outline: none;
+    cursor: pointer;
 }
 
 .sign-up-button:hover {
