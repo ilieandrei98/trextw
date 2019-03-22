@@ -1,57 +1,56 @@
 alert("abc");
 var isButtonActive = [];
 var topicContent = ["", "", ""];
-var topicContentId = [-1,-1 ,-1 ];
+var topicContentId = [-1, -1, -1];
 for (var x = 1; x <= 15; x++) isButtonActive[x] = 0;
 
 isTopicAvailable = function () {
-    for (var i = 0; i < 3; i++){
-        if (topicContentId[i] == -1) {
-            return i;
-        }
+  for (var i = 0; i < 3; i++) {
+    if (topicContentId[i] == -1) {
+      return i;
     }
-    return -1;
+  }
+  return -1;
 }
 
-writeTopic = function (buttonNumber,whereTo) {
-    topicContent[whereTo] = document.getElementById("button" + buttonNumber.toString()).innerHTML;
-    topicContentId[whereTo] = buttonNumber;
-    document.getElementById("topic" + (whereTo + 1).toString()).classList.remove("topic-miniature-unused");
-    document.getElementById("topic" + (whereTo + 1).toString()).innerHTML = topicContent[whereTo];
+writeTopic = function (buttonNumber, whereTo) {
+  topicContent[whereTo] = document.getElementById("button" + buttonNumber.toString()).innerHTML;
+  topicContentId[whereTo] = buttonNumber;
+  document.getElementById("topic" + (whereTo + 1).toString()).classList.remove("topic-miniature-unused");
+  document.getElementById("topic" + (whereTo + 1).toString()).innerHTML = topicContent[whereTo];
 }
 
 resetTopic = function (buttonNumber) {
-    for (var i = 0; i < 3; i++){
-        if (topicContentId[i] == buttonNumber)
-        {
-            topicContent[i] = "";
-            topicContentId[i] = -1;
-            document.getElementById("topic" + (i+1).toString()).className += " topic-miniature-unused";
-            }
+  for (var i = 0; i < 3; i++) {
+    if (topicContentId[i] == buttonNumber) {
+      topicContent[i] = "";
+      topicContentId[i] = -1;
+      document.getElementById("topic" + (i + 1).toString()).className += " topic-miniature-unused";
     }
+  }
 }
 
 topicClick = function (topicNumber) {
-    document.getElementById("topic" + topicNumber.toString()).className += " topic-miniature-unused";
-    isButtonActive[topicContentId[topicNumber - 1]] = 0;
-    document.getElementById("button"+topicContentId[topicNumber - 1].toString()).classList.remove("topic-item-active");
-    topicContentId[topicNumber - 1] = -1;
-    topicContent[topicNumber - 1] = "";
+  document.getElementById("topic" + topicNumber.toString()).className += " topic-miniature-unused";
+  isButtonActive[topicContentId[topicNumber - 1]] = 0;
+  document.getElementById("button" + topicContentId[topicNumber - 1].toString()).classList.remove("topic-item-active");
+  topicContentId[topicNumber - 1] = -1;
+  topicContent[topicNumber - 1] = "";
 }
 
 toggleActive = function (buttonNumber) {
   console.log("abc");
-    var buttonName = "button" + buttonNumber.toString();
-    if (!isButtonActive[buttonNumber]) {
-        if (isTopicAvailable() != -1) {
-            document.getElementById(buttonName).className += " topic-item-active";
-            writeTopic(buttonNumber, isTopicAvailable());
-        }
-        else
-        isButtonActive[buttonNumber] = 1 - isButtonActive[buttonNumber];
+  var buttonName = "button" + buttonNumber.toString();
+  if (!isButtonActive[buttonNumber]) {
+    if (isTopicAvailable() != -1) {
+      document.getElementById(buttonName).className += " topic-item-active";
+      writeTopic(buttonNumber, isTopicAvailable());
+    }
+    else
+      isButtonActive[buttonNumber] = 1 - isButtonActive[buttonNumber];
   } else {
-      document.getElementById(buttonName).classList.remove("topic-item-active");
-      resetTopic(buttonNumber);
+    document.getElementById(buttonName).classList.remove("topic-item-active");
+    resetTopic(buttonNumber);
   }
   isButtonActive[buttonNumber] = 1 - isButtonActive[buttonNumber];
 };

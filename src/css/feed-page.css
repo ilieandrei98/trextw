@@ -154,6 +154,7 @@
     height: 3px;
     border-radius: 3px;
     background: #d3d3d3;
+    outline: none;
 }
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
