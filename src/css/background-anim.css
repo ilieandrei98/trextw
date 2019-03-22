@@ -1,0 +1,62 @@
+body {
+	background: #fff;
+	color: #333;
+	font: 100% Arial, Sans Serif;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	border:0;
+	overflow-x: hidden;
+	display:flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+
+/* KEYFRAMES */
+
+@-webkit-keyframes animateCloud {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50rem;
+	}
+}
+
+@-moz-keyframes animateCloud {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50rem;
+	}
+}
+
+@keyframes animateCloud {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50rem;
+	}
+	
+}
+
+.cloud {
+	-webkit-animation: animateCloud 35s linear infinite;
+	-moz-animation: animateCloud 35s linear infinite;
+	animation: animateCloud 35s linear infinite;
+	
+	-webkit-transform: scale(0.95);
+	-moz-transform: scale(0.95);
+	transform: scale(0.95);
+}
+
+#cloud-background{
+    z-index: -1;
+	height: 100%;
+	width:100%;	
+	content: ' ';
+	position: absolute;
+}
