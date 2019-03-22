@@ -1,0 +1,58 @@
+.popup {
+    display:block; 
+    position: absolute;
+    top: 0;
+    left: 0;   
+}
+
+.overlay {
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    background: #6A7284;
+    opacity: 0.5;
+}
+
+.container-wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-container {
+    padding: 0 95px;
+}
+
+.popup-title {
+    margin: 40px;
+}
+
+.popup-buttons {
+    margin: 40px;
+}
+
+.popup-subtitle {
+    text-align: left;
+}
+
+@media screen and (max-width : 780px) {
+    .popup-container {
+        padding: 0 30px;
+        width: 100vw;
+    }
+
+    .sign-up-button {
+        margin:5px;
+        width: 155px;
+    }
+
+    .popup-buttons {
+        margin: 20px 10px;
+    }
+}

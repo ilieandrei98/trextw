@@ -7,7 +7,7 @@ class App {
         this.router = new Router(
             {
                 about: new Layout(new Page('menu.html'), new Page('about.html')),
-                home: new Layout(new Page('menu.html'), new Page('home.html')),
+                home: new Layout(new Page('menu.html'), new Page('home.html'), new Page("popup.html")),
                 default: new Page('general-layout.html'),                
             },
             document.getElementById('router')
