@@ -15,7 +15,7 @@ class App {
                 topics: new Page('topics.html'),
                 readmore: new Page('read-more.html'),
                 about: new Layout(new Page('menu.html'), new Page('about.html')),
-                home: new Layout(new Page('menu.html'), new Page('home.html'), new Page("add-group-popup.html")),
+                home: new Layout( new Page("add-group-popup.html")),
                 default: new Page('general-layout.html'),                
             },
             document.getElementById('router')
