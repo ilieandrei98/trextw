@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 /*desktop: @media (min-width: 768px) { @content; } */
 
@@ -42,7 +42,6 @@ header {
     width: 100%;
     height: 60px;
     border-bottom: 2px solid #DEE2EC;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -52,14 +51,12 @@ header .logo {
     height: 60px;
     width: auto;
     margin-left: 20px;
-
     display: flex;
     align-items: center;
 }
 
 header .logo span {
     margin-left: 15px;
-
     color: #6A7284;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -70,11 +67,9 @@ header .circle {
     width: 45px;
     border-radius: 50%;
     background-color: #55EFC4;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: #FFF;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
@@ -84,11 +79,10 @@ header .circle {
 .user {
     display: flex;
     align-items: center;
-
     margin-right: 30px;
 }
 
-.user img {    
+.user img {
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -97,7 +91,6 @@ header .circle {
 
 .user .name {
     margin-left: 15px;
-
     color: #8A8D94;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -107,7 +100,6 @@ header .circle {
 .user .arrow {
     width: 10px;
     margin-left: 15px;
-
     font-size: 14px;
     color: #DEE2EC;
     cursor: pointer;
@@ -132,7 +124,6 @@ header label .sign-up-input {
 
 header .mobile-buttons i {
     margin-right: 20px;
-    
     color: #6A7284;
     font-size: 30px;
 }
@@ -146,23 +137,21 @@ header .search i {
     height: calc(100vh - 82px);
     padding-top: 20px;
     border-right: 2px solid #DEE2EC;
-
     display: block;
     background-color: #fff;
 }
 
-@media screen and (max-width: 1248px) { 
+@media screen and (max-width: 1248px) {
     .menu {
         width: 30%;
     }
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 768px) {
     .menu {
         display: none;
         width: 70%;
         height: calc(100vh - 20px);
-
         position: absolute;
         z-index: 2;
         left: 0;
@@ -202,10 +191,8 @@ header .search i {
     width: calc(100% - 20px);
     height: 40px;
     padding-left: 20px;
-
     display: flex;
     align-items: center;
-
     cursor: pointer;
 }
 
@@ -220,7 +207,6 @@ header .search i {
 
 .menu .big-user {
     margin-bottom: 30px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -237,13 +223,11 @@ header .search i {
     width: 100px;
     height: 100px;
     margin-bottom: 10px;
-
     border-radius: 50%;
 }
 
 .menu .big-user .name {
     margin-bottom: 10px;
-
     color: #8A8D94;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -255,12 +239,10 @@ header .search i {
     height: 20px;
     border-radius: 50%;
     background-color: #55EFC4;
-
     display: flex;
     align-items: center;
     justify-content: center;
     align-self: center;
-
     color: #FFF;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -269,7 +251,6 @@ header .search i {
 
 .menu .option-name {
     margin-left: 10px;
-
     color: #6A7284;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -278,7 +259,6 @@ header .search i {
 
 .menu .group-title {
     margin: 20px 0 10px 20px;
-
     color: #6A7284;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -288,7 +268,6 @@ header .search i {
 
 .menu .add-new-group {
     margin-top: 20px;
-
     display: flex;
     justify-content: center;
 }
@@ -297,11 +276,9 @@ header .search i {
     display: none;
     width: 100%;
     height: 100vh;
-
     position: absolute;
     left: 0;
     top: 0;
-
     background-color: rgba(106, 114, 132, 0.4);
 }
 
@@ -310,13 +287,16 @@ header .search i {
     height: auto;
     min-height: calc(100vh - 82px);
     background-color: rgba(236, 240, 241, 0.4);
-
     overflow-y: scroll;
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 768px) {
     .content {
         width: 100%;
         min-height: calc(100vh - 62px);
     }
+}
+
+body, html {
+    min-height: 100vh;
 }
