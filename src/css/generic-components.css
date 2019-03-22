@@ -105,3 +105,20 @@
 .padded-container {
     padding:50px 150px;
 }
+
+@media screen and (max-width: 750px) {
+    .padded-container {
+        padding: 20px 50px;
+        width: 70vw;
+    }
+    
+    .sign-up-input {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sign-up-input {
+        width: 220px;
+    }
+}
