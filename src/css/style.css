@@ -314,7 +314,7 @@ header .search i {
     }
 }
 
-body, html {
+body, html, .router, .view {
     min-height: 100vh;
 }
 
@@ -326,4 +326,24 @@ body, html {
     .content-container {
         width: 100%;
     }
+}
+/* IE9 */
+::selection {
+    background: #55EFC4;
+    color: #FFF;
+    text-shadow: none;
+}
+
+/* Safari & Chrome */
+::-webkit-selection {
+    background: #55EFC4;
+    color: #FFF;
+    text-shadow: none;
+}
+
+/* Mozilla */
+::-moz-selection {
+    background: #55EFC4;
+    color: #FFF;
+    text-shadow: none;
 }
