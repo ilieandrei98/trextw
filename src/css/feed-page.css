@@ -154,7 +154,10 @@
     height: 3px;
     border-radius: 3px;
     background: #d3d3d3;
+<<<<<<< HEAD
     outline: none;
+=======
+>>>>>>> popup
 }
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;

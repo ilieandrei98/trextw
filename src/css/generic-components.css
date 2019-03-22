@@ -54,8 +54,11 @@
     width: 200px;
     height: 35px;
     margin: 20px;
+<<<<<<< HEAD
     outline: none;
     cursor: pointer;
+=======
+>>>>>>> popup
 }
 
 .sign-up-button:hover {
@@ -63,6 +66,18 @@
     border-color: #50e0b8;
 }
 
+<<<<<<< HEAD
+=======
+.button-empty{
+    color: #55EFC4;
+    background: #fff;
+}
+
+.button-empty:hover{
+    color: #fff;
+}
+
+>>>>>>> popup
 .sign-up-container {
     display:flex;
     flex-direction: column;
@@ -79,6 +94,7 @@
     font-family: 'Roboto', sans-serif;
     letter-spacing: 3px;
     text-align: center;
+<<<<<<< HEAD
 }
 .sign-up-helper-text {
     color:#6A7284;
@@ -123,4 +139,6 @@
     .sign-up-input {
         width: 220px;
     }
+=======
+>>>>>>> popup
 }
