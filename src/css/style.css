@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+/*desktop: @media (min-width: 768px) { @content; } */
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile {
+        display: block;
+    }
+}
+
 header {
     width: 100%;
     height: 60px;
@@ -80,22 +92,67 @@ header .circle {
     transition: 0.3s ease;
 }
 
-.header .search::before {
+header .search::before {
     background-image: url(../assets/search-solid.svg);
+}
+
+header label {
+    width: 33%;
+}
+
+header label .sign-up-input {
+    width: 100% !important;
 }
 
 .container {
     display: flex;
 }
 
-.meniu {    
+header .mobile-buttons i {
+    margin-right: 20px;
+    
+    color: #6A7284;
+    font-size: 30px;
+}
+
+.menu {    
     width: 17%;
     height: calc(100vh - 82px);
     padding-top: 20px;
     border-right: 2px solid #DEE2EC;
+
+    display: block;
+    background-color: #fff;
 }
 
-.meniu .option {
+@media screen and (max-width: 1248px) { 
+    .menu {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    .menu {
+        display: none;
+        width: 70%;
+        height: calc(100vh - 20px);
+
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .user {
+        display: none;
+    }
+}
+
+.menu .option {
     width: calc(100% - 20px);
     height: 40px;
     padding-left: 20px;
@@ -106,16 +163,48 @@ header .circle {
     cursor: pointer;
 }
 
-.meniu .option:hover {
+.menu .option:hover {
     background-color: #F7F9F9;
     transition: 0.2s ease;
 }
 
-.meniu .option-selected {
+.menu .option-selected {
     background-color: #F7F9F9;
 }
 
-.meniu .option .circle {
+.menu .big-user {
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .menu .big-user {
+        display: none;
+    }
+}
+
+.menu .big-user img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+}
+
+.menu .big-user .name {
+    margin-bottom: 10px;
+
+    color: #8A8D94;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.menu .option .circle {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -124,6 +213,7 @@ header .circle {
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
 
     color: #FFF;
     font-family: 'Roboto', sans-serif;
@@ -131,7 +221,7 @@ header .circle {
     font-size: 14px;
 }
 
-.meniu .option-name {
+.menu .option-name {
     margin-left: 10px;
 
     color: #6A7284;
@@ -140,7 +230,7 @@ header .circle {
     letter-spacing: 2px;
 }
 
-.meniu .group-title {
+.menu .group-title {
     margin: 20px 0 10px 20px;
 
     color: #6A7284;
@@ -150,16 +240,37 @@ header .circle {
     letter-spacing: 2px;
 }
 
-.meniu .add-new-group {
+.menu .add-new-group {
     margin-top: 20px;
-    
+
     display: flex;
     justify-content: center;
 }
 
+.container .overlay {
+    display: none;
+    width: 100%;
+    height: 100vh;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    background-color: rgba(106, 114, 132, 0.4);
+}
+
 .content {
     width: calc(100% - 17%);
+    height: auto;
+    min-height: calc(100vh - 82px);
     background-color: rgba(236, 240, 241, 0.4);
 
     overflow-y: scroll;
+}
+
+@media screen and (max-width: 768px) { 
+    .content {
+        width: 100%;
+        min-height: calc(100vh - 62px);
+    }
 }
