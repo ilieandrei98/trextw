@@ -39,17 +39,21 @@
         function showSearch() {
             var element = document.getElementById("mobile-search");
             var contentElement = document.getElementById("content");
+            var containerElement = document.getElementById("container");
 
             element.style.display = 'flex';
             contentElement.style.minHeight = 'calc(100vh - 125px)';
+            containerElement.style.paddingTop = '145px';
         }
 
         function closeSearch() {
             var element = document.getElementById("mobile-search");
             var contentElement = document.getElementById("content");
+            var containerElement = document.getElementById("container");
             
-            contentElement.style.minHeight = 'calc(100vh - 62px)';
             element.style.display = 'none';
+            contentElement.style.minHeight = 'calc(100vh - 62px)';
+            containerElement.style.paddingTop = '62px';
         }
     </script>
 </body>
