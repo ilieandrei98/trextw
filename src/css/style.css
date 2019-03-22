@@ -115,7 +115,7 @@ header .mobile-buttons i {
     font-size: 30px;
 }
 
-.meniu {    
+.menu {    
     width: 17%;
     height: calc(100vh - 82px);
     padding-top: 20px;
@@ -126,13 +126,13 @@ header .mobile-buttons i {
 }
 
 @media screen and (max-width: 1248px) { 
-    .meniu {
+    .menu {
         width: 30%;
     }
 }
 
 @media screen and (max-width: 768px) { 
-    .meniu {
+    .menu {
         display: none;
         width: 70%;
         height: calc(100vh - 20px);
@@ -152,7 +152,7 @@ header .mobile-buttons i {
     }
 }
 
-.meniu .option {
+.menu .option {
     width: calc(100% - 20px);
     height: 40px;
     padding-left: 20px;
@@ -163,16 +163,16 @@ header .mobile-buttons i {
     cursor: pointer;
 }
 
-.meniu .option:hover {
+.menu .option:hover {
     background-color: #F7F9F9;
     transition: 0.2s ease;
 }
 
-.meniu .option-selected {
+.menu .option-selected {
     background-color: #F7F9F9;
 }
 
-.meniu .big-user {
+.menu .big-user {
     margin-bottom: 30px;
 
     display: flex;
@@ -182,12 +182,12 @@ header .mobile-buttons i {
 }
 
 @media screen and (min-width: 768px) {
-    .meniu .big-user {
+    .menu .big-user {
         display: none;
     }
 }
 
-.meniu .big-user img {
+.menu .big-user img {
     width: 100px;
     height: 100px;
     margin-bottom: 10px;
@@ -195,7 +195,7 @@ header .mobile-buttons i {
     border-radius: 50%;
 }
 
-.meniu .big-user .name {
+.menu .big-user .name {
     margin-bottom: 10px;
 
     color: #8A8D94;
@@ -204,7 +204,7 @@ header .mobile-buttons i {
     font-size: 18px;
 }
 
-.meniu .option .circle {
+.menu .option .circle {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -221,7 +221,7 @@ header .mobile-buttons i {
     font-size: 14px;
 }
 
-.meniu .option-name {
+.menu .option-name {
     margin-left: 10px;
 
     color: #6A7284;
@@ -230,7 +230,7 @@ header .mobile-buttons i {
     letter-spacing: 2px;
 }
 
-.meniu .group-title {
+.menu .group-title {
     margin: 20px 0 10px 20px;
 
     color: #6A7284;
@@ -240,7 +240,7 @@ header .mobile-buttons i {
     letter-spacing: 2px;
 }
 
-.meniu .add-new-group {
+.menu .add-new-group {
     margin-top: 20px;
 
     display: flex;

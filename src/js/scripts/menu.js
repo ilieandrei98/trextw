@@ -1,6 +1,6 @@
-export default class Meniu {    
-    static showMeniu() {
-        var elements = document.getElementsByClassName("mobile-meniu");
+export default class menu {    
+    static showmenu() {
+        var elements = document.getElementsByClassName("mobile-menu");
 
         elements[0].classList.add("animated-in");
         elements[1].classList.add("animate-overlay-in");
@@ -10,8 +10,8 @@ export default class Meniu {
         }
     }
 
-    static closeMeniu() {
-        var elements = document.getElementsByClassName("mobile-meniu");
+    static closemenu() {
+        var elements = document.getElementsByClassName("mobile-menu");
 
         for(var i = 0; i < elements.length; i++) {
             elements[i].style.display = 'none';
