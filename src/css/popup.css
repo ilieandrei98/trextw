@@ -41,6 +41,14 @@
     text-align: left;
 }
 
+.tags-container{
+    width: 330px;
+}
+
+.tag-label {
+    display:inline-block
+}
+
 @media screen and (max-width : 780px) {
     .popup-container {
         padding: 0 30px;
