@@ -68,6 +68,16 @@
     outline: none;
 }
 
+
+.button-empty{
+    color: #55EFC4;
+    background: #fff;
+}
+
+.button-empty:hover{
+    color: #fff;
+}
+
 .sign-up-container {
     display:flex;
     flex-direction: column;
