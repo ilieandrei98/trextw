@@ -14,7 +14,6 @@ class App {
                 newsfeed: new Page('news-feed.html'),
                 topics: new Page('topics.html'),
                 readmore: new Page('read-more.html'),
-                default: new Page('general-layout.html'),
                 about: new Layout(new Page('menu.html'), new Page('about.html')),
                 home: new Layout( new Page("add-group-popup.html")),
                 default: new Page('general-layout.html'),                

@@ -2,6 +2,32 @@
 
 /*desktop: @media (min-width: 768px) { @content; } */
 
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes overlayShow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.animated-in {
+    animation: 0.25s ease-out 0s 1 slideInFromLeft;
+}
+
+.animate-overlay-in {
+    animation: 0.25s ease-out 0s 1 overlayShow;
+}
+
 .mobile {
     display: none;
 }
@@ -16,9 +42,13 @@ header {
     width: 100%;
     height: 60px;
     border-bottom: 2px solid #DEE2EC;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    position: fixed;
+    background-color: #fff;
 }
 
 header .logo {
@@ -84,10 +114,6 @@ header .circle {
     transition: 0.3s ease;
 }
 
-header .search::before {
-    background-image: url(../assets/search-solid.svg);
-}
-
 header label {
     width: 33%;
 }
@@ -98,6 +124,7 @@ header label .sign-up-input {
 
 .container {
     display: flex;
+    padding-top: 62px;
 }
 
 header .mobile-buttons i {
@@ -106,7 +133,12 @@ header .mobile-buttons i {
     font-size: 30px;
 }
 
+header .search i {
+    display: none;
+}
+
 .menu {
+    position: fixed;   
     width: 17%;
     height: calc(100vh - 82px);
     padding-top: 20px;
@@ -119,6 +151,10 @@ header .mobile-buttons i {
     .menu {
         width: 30%;
     }
+
+    .content {
+        padding-left: 30%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -126,14 +162,33 @@ header .mobile-buttons i {
         display: none;
         width: 70%;
         height: calc(100vh - 20px);
-        position: absolute;
-        z-index: 2;
+        z-index: 105;
         left: 0;
         top: 0;
     }
 
-    .search {
+    header {
+        display: flex;
+        flex-wrap: wrap;
+
+        height: auto;
+    }
+
+    header .search {
         display: none;
+        width: 100%;
+        padding: 10px 20px;
+        align-items: center;
+
+        border-top: 2px solid #DEE2EC;
+    }
+
+    header .search i {
+        display: block;
+        margin-left: 10px;
+
+        color: #DEE2EC;
+        font-size: 30px;
     }
 
     .user {
@@ -230,7 +285,7 @@ header .mobile-buttons i {
     display: none;
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     background-color: rgba(106, 114, 132, 0.4);
@@ -240,14 +295,22 @@ header .mobile-buttons i {
     width: calc(100% - 17%);
     height: auto;
     min-height: calc(100vh - 82px);
+    padding-left: 17%;
+
     background-color: rgba(236, 240, 241, 0.4);
-    overflow-y: scroll;
+}
+
+@media screen and (max-width: 1248px) {
+    .content {
+        padding-left: 30%;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .content {
         width: 100%;
         min-height: calc(100vh - 62px);
+        padding: 0;
     }
 }
 
@@ -255,6 +318,15 @@ body, html, .router, .view {
     min-height: 100vh;
 }
 
+.content-container {
+    width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+    .content-container {
+        width: 100%;
+    }
+}
 /* IE9 */
 ::selection {
     background: #55EFC4;

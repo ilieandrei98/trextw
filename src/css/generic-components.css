@@ -26,6 +26,7 @@
     color:#6A7284;
     margin:10px;
 }
+
 .sign-up-input::placeholder {
     color:#DEE2EC;
 }
@@ -63,6 +64,11 @@
     border-color: #50e0b8;
 }
 
+.sign-up-button:focus {
+    outline: none;
+}
+
+
 .button-empty{
     color: #55EFC4;
     background: #fff;
@@ -89,6 +95,7 @@
     letter-spacing: 3px;
     text-align: center;
 }
+
 .sign-up-helper-text {
     color:#6A7284;
     font-size: 16px;
