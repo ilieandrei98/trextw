@@ -27,6 +27,8 @@
 
 .popup-container {
     padding: 0 95px;
+    display: flex;
+    align-items: center;
 }
 
 .popup-title {
@@ -34,7 +36,7 @@
 }
 
 .popup-buttons {
-    margin: 40px;
+    margin: 20px 40px 40px;
 }
 
 .popup-subtitle {
@@ -52,7 +54,7 @@
 @media screen and (max-width : 780px) {
     .popup-container {
         padding: 0 30px;
-        width: 100vw;
+        width: 80vw;
     }
 
     .sign-up-button {
@@ -61,6 +63,21 @@
     }
 
     .popup-buttons {
-        margin: 20px 10px;
+        margin: 20px 0;
+        width: max-content
+    }
+
+    .sign-up-input {
+        width: 250px;
+    }
+
+    .tags-container {
+        width:250px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sign-up-title{
+        font-size: 20px;
     }
 }
