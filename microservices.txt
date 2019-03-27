@@ -1,0 +1,5 @@
+- auth + register
+- get information from google academics + save info
+- recomandation based on user's info + search (+groups)
+- articles
+- user preferences calculator

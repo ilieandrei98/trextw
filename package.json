@@ -1,9 +1,15 @@
 {
-    "scripts": {
-        "server": "light-server -s . --port=6969"
-    }, 
-    "files": ["./src/js/scripts/menu.js"],
-    "dependencies": {
-        "light-server": "^2.6.1"
-    }
+  "name": "trex-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.4.19"
+  }
 }
