@@ -14,13 +14,13 @@ const app = new router(server);
 /*
 Microservices
 */
-require('./src/exampleMicroservice/api/service')(app);
+require('./src/searchMicroservice/api/service')(app);
 /*
 Utils
 */
 require('./src/utils/stringExtensions');
 
-server.listen(config.port, config.host, function(){
+server.listen(config.port, config.host, function() {
    console.log("Listening on " + config.host + ":" + config.port + "..."); 
 });
 
