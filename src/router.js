@@ -1,7 +1,8 @@
 const url = require('url');
 const ObjectId = require('mongoose').Types.ObjectId;
+
 var handlers = {
-    notFound: function(req, res){
+    notFound: function(req, res) {
         const notFound = {
             error: "Route not found"
         }
@@ -19,10 +20,19 @@ var router = function (server) {
 
         req.params = [];
 
-        for(let i = 0 ; i< urlPaths.length; i++){
-            if(ObjectId.isValid(urlPaths[i])){
+        for(let i = 0 ; i < urlPaths.length; i++) {
+            if(ObjectId.isValid(urlPaths[i])) {
                 req.params.push(urlPaths[i]);                
                 urlPaths[i] = ":id";
+
+                continue;
+            }
+            
+            if(urlPaths[i].includes('=')) {
+                var paramethers = urlPaths[i].split('=');                
+
+                req.params.push(paramethers[1]);                
+                urlPaths[i] = paramethers[0] + "=:param";
             }
         }
 
@@ -35,15 +45,15 @@ var router = function (server) {
         });
 
         req.on('end', function () {
-            if(body.isValidJSON()){
+            if(body.isValidJSON()) {
                 req.body = JSON.parse(body);
             }
-            if (handlers[path] && handlers[path][method]) {
-                const handler = handlers[path][method];
 
+            if(handlers[path] && handlers[path][method]) {
+                const handler = handlers[path][method];
                 handler(req, res);
             }
-            else{
+            else { 
                 handlers['notFound'](req, res);
             }
         });
