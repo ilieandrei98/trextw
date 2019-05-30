@@ -30,6 +30,7 @@ require("./src/groupsMicroservice/api/service")(app);
 require("./src/authentication/api/authenticationApi")(app);
 require("./src/searchMicroservice/api/searchApi")(app);
 require("./src/tagsMicroservice/api/tagsApi")(app);
+require('./src/groupsMicroservice/api/service')(app);
 /*
 Utils
 */
