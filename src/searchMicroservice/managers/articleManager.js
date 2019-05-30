@@ -8,6 +8,7 @@ class ArticleManager {
   }
 
   searchArticleInDatabase(keyword) {
+    keyword = keyword.string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     let query = {
       $or: [
         { text: new RegExp(".*" + keyword + ".*") },
@@ -20,7 +21,8 @@ class ArticleManager {
   }
 
   async searchTagInTheDatabase(tag, limit) {
-    let query = { tags: new RegExp(".*" + tag + ".*") };
+    tag = tag.replace(/[-[\]{}()*+?.,\\^$|]/g, "\\$&")
+    let query = { tags: new RegExp(".*" + escape(tag) + ".*") };
     var articles = await articleModel.find(query).exec();
 
     var returnArticles = await this.wheelOfFortune(articles, limit);
