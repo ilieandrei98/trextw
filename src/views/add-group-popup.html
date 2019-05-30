@@ -12,12 +12,14 @@
             <div class="tags">
                 <p class="sign-up-helper-text popup-subtitle">Tags</p>
                 <div class="tags-container" id="tags-container">
-                    <div class="tag-label">HTML</div>
+                </div>
+                <p class="sign-up-helper-text popup-subtitle">Chosen tags</p>
+                <div class="tags-container" id="group-chosen-topics">
                 </div>
             </div>
             <div class="popup-buttons">
-                <button class="sign-up-button" onclick="addGroup()">ADD</button>
-                <button class="sign-up-button button-empty" onclick="cancel('add-group-modal')">CANCEL</button>
+                <button class="sign-up-button" onclick="groups.addGroup()">ADD</button>
+                <button class="sign-up-button button-empty" onclick="groups.cancel('add-group-modal')">CANCEL</button>
             </div>
         </div>
     </div>

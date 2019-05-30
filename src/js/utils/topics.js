@@ -62,4 +62,4 @@ class Topics {
   }
 }
 
-window.pages.push(new Topics("http://10.20.0.15:3000"));
+window.pages.push(new Topics(window.endPoint));

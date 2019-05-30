@@ -15,7 +15,7 @@ export default class Router {
                 if (this.el.id != "general-content") {
                     this.show('app').then(() => {
                         this.el = document.getElementById("general-content");
-                        window.loadGroups();
+                        window.groups.loadGroups();
                     })
                 }
             } else {
