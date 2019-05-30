@@ -16,7 +16,7 @@ Microservices
 */
 require('./src/exampleMicroservice/api/service')(app);
 require('./src/authentication/api/authenticationApi')(app);
-
+require('./src/groupsMicroservice/api/service')(app);
 require('./src/searchMicroservice/api/service')(app);
 /*
 Utils
