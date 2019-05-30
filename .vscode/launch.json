@@ -9,8 +9,7 @@
             "request": "attach",
             "name": "Attach",
             "port": 3000
-        },
-        
+        },        
         {
             "type": "node",
             "request": "launch",
