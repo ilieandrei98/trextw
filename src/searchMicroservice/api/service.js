@@ -1,8 +1,9 @@
 const articleManager = require("../managers/articleManager");
 const preferenceManager = require("../managers/preferenceManager");
 
+const path = '/api/articles/';
 var service = function(app) {
-  app.get("/articles/search?keyword=:param", function(req, res) {
+  app.get(path + "search?keyword=:param", function(req, res) {
     if (req.params[0] == null) {
       res.end(Response.error());
     }
@@ -32,7 +33,7 @@ var service = function(app) {
       });
   });
 
-  app.get("/articles/preferences/:id", function(req, res) {
+  app.get(path + "preferences/:id", function(req, res) {
     if (req.params[0] == null) {
       res.end(Response.error());
     }

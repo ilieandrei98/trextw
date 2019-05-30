@@ -1,4 +1,4 @@
-const userModel = require("../models/recomandation/userModel");
+const userModel = require("../../shared/userModel");
 const articleManager = require("./articleManager");
 
 class PreferenceManager {
@@ -11,10 +11,10 @@ class PreferenceManager {
     }
 
     let articles = [];
-    for (let i = 0; i < user.preferences.length; i++) {
+    for (let i = 0; i < user.topics.length; i++) {
       var data = await articleManager.searchTagInTheDatabase(
-        user.preferences[i].tag,
-        parseInt(user.preferences[i].relevance)
+        user.topics[i].tag,
+        parseInt(user.topics[i].relevance)
       );
 
       for (let j = 0; j < data.length; j++) {

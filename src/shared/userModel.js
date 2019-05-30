@@ -1,4 +1,12 @@
-const mongoose = require('../../dataAccess/db');
+const mongoose = require('../dataAccess/db');
+
+const tagSchema = new mongoose.Schema(
+    {
+      tag: String,
+      relevance: Number
+    },
+    { noId: true }
+  );
 
 const userSchema = new mongoose.Schema({
     fullName:String,
@@ -8,7 +16,7 @@ const userSchema = new mongoose.Schema({
     },
     password:String,
     email:String,
-    topics: [String]
+    topics: [tagSchema]
 });
 
 const userModel = mongoose.model('User', userSchema);
