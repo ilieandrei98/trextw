@@ -12,5 +12,8 @@
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.4.19"
+    "node-fetch": "^2.3.0",
+    "promise": "^8.0.3",
+    "xmlhttprequest": "^1.8.0"
   }
 }
