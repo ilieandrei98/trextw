@@ -1,3 +1,5 @@
+import Readmore from "./readmore.js";
+
 export default class Router {
     constructor(routes, el) {
         this.routes = routes;
@@ -7,15 +9,30 @@ export default class Router {
     }
 
     async hashChanged(ev) {
-        if (window.location.hash.length > 0) {
+        if (window.location.hash.length >= 0) {
             const pageName = window.location.hash.substr(1);
-            if(this.routes[pageName]){
-                this.show(pageName);
-            }else{
-                this.show('default');
+            if (pageName.indexOf('app') >= 0) {
+                if (this.el.id != "general-content") {
+                    this.show('app').then(() => {
+                        this.el = document.getElementById("general-content");
+                        window.loadGroups();
+                    })
+                }
+            } else {
+                this.el = document.getElementById("router");
             }
-        } else if (this.routes['default']) {
-            this.show('default');
+            if (pageName != 'app/' && pageName != 'app') {
+                if (this.routes[pageName.split('/id/')[0]]) {
+                    this.show(pageName.split('/id/')[0]);
+                    if (pageName.split('/id/')[0] == "app/readmore") {
+                        let readmore = new Readmore(window.endPoint, pageName.split('/id/')[1])
+                    }
+                } else {
+                    this.goTo('app/newsfeed');
+                }
+            } else {
+                this.goTo('app/newsfeed');
+            }
         }
     }
 
@@ -24,6 +41,19 @@ export default class Router {
         await page.load();
         this.el.innerHTML = '';
         page.show(this.el);
+    }
+
+    async goTo(pageName) {
+        if (window.pages) {
+            window.pages.pop();
+        }
+        window.location.hash = `#${pageName}`;
+        console.log(window.pages);
+        
+    }
+
+    changeRouter(el) {
+        this.el = el;
     }
 }
 

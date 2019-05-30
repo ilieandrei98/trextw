@@ -26,35 +26,17 @@
         </div>
         <div class="option option-selected">
             <div class="circle">
-                <p>T</p>
+                <p>H</p>
             </div>
-            <div class="option-name">Home</div>
+            <div class="option-name" onclick="app.router.goTo('app/newsfeed')">Home</div>
         </div>
-        <div class="groups">
-            <p class="group-title">Your groups</p>
-            <div class="option">
-                <div class="circle">T</div>
-                <div class="option-name">Angular Pascani</div>
-            </div>
-            <div class="option">
-                <div class="circle">T</div>
-                <div class="option-name">.net Iasi</div>
-            </div>
-            <div class="option">
-                <div class="circle">T</div>
-                <div class="option-name">React&Vue</div>
-            </div>
-            <div class="option">
-                <div class="circle">T</div>
-                <div class="option-name">C++ is the best</div>
-            </div>
-            <div class="option">
-                <div class="circle">T</div>
-                <div class="option-name">Tehnologii web Info</div>
-            </div>
-            <a href="fdsfgd" class="sign-up-helper-text add-new-group">Add new group</a>
+        <p class="group-title">Your groups</p>
+        <div class="groups" id="group-list">
+            <a onclick="openCreateGroupModal()" class="sign-up-helper-text add-new-group">Add new group</a>
         </div>
     </div>
     <div id="mobile-menu" class="overlay mobile-menu" onclick="closeMenu()">a</div>
-    <div class="content" id="content"></div>
+    <div class="content" id="general-content">
+
+    </div>
 </div>

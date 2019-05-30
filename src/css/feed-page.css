@@ -29,6 +29,7 @@
     transition: all .2s ease;
     vertical-align: middle;
     background-image: url(/src/assets/article-header-test.png);
+    background-size: cover;
 }
 
 .article-header.readmore > .article-image > img {

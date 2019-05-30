@@ -1,8 +1,10 @@
 {
     "scripts": {
         "server": "light-server -s . --port=6969"
-    }, 
-    "files": ["./src/js/scripts/menu.js"],
+    },
+    "files": [
+        "./src/js/scripts/menu.js"
+    ],
     "dependencies": {
         "light-server": "^2.6.1"
     }
