@@ -1,29 +1,7 @@
-const exampleModel = require("../models/exampleModel");
 const articleManager = require("../managers/articleManager");
+const preferenceManager = require("../managers/preferenceManager");
 
 var service = function(app) {
-  app.get("/", function(req, res) {
-    exampleModel.find({}).then(function(data) {
-      res.end(JSON.stringify(data));
-    });
-  });
-
-  app.get("/:id", function(req, res) {
-    exampleModel.findById(req.params[0], function(err, data) {
-      res.end(JSON.stringify(data));
-    });
-  });
-
-  app.post("/", function(req, res) {
-    var model = new exampleModel(req.body);
-
-    model.save().catch(function(err) {
-      console.log(err);
-    });
-
-    res.end();
-  });
-
   app.get("/articles/search?keyword=:param", function(req, res) {
     if (req.params[0] == null) {
       res.end(Response.error());
@@ -43,16 +21,28 @@ var service = function(app) {
           return;
         }
 
-        articleManager
-          .searchArticleOnMedium(req.params[0])
-          .then(response => {
-            let toReturn = JSON.stringify(response);
+        articleManager.searchArticleOnMedium(req.params[0]).then(response => {
+          let toReturn = JSON.stringify(response);
 
-            res.setHeader("Content-Type", "application/json");
-            res.end(toReturn);
-          });
+          res.setHeader("Content-Type", "application/json");
+          res.end(toReturn);
+        });
 
         return;
+      });
+  });
+
+  app.get("/articles/preferences/:id", function(req, res) {
+    if (req.params[0] == null) {
+      res.end(Response.error());
+    }
+
+    preferenceManager
+      .getUserPreferenceTags(req.params[0])
+      .then(result => {          
+        
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify(result));
       });
   });
 };

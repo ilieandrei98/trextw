@@ -19,6 +19,57 @@ class ArticleManager {
     return data;
   }
 
+  async searchTagInTheDatabase(tag, limit) {
+    let query = { tags: new RegExp(".*" + tag + ".*") };
+    var articles = await articleModel.find(query).exec();
+
+    var returnArticles = await this.wheelOfFortune(articles, limit);
+
+    return returnArticles;
+  }
+
+  async wheelOfFortune(articles, limit) {
+    if (limit > articles.length) {
+      return articles;
+    }
+
+    var totalPopularity = 0;
+    articles.forEach(element => {
+      totalPopularity += element.popularity;
+    });
+
+    var cumulativeFitness = [];
+    cumulativeFitness[0] = 0;
+    for (let i = 1; i < articles.length; i++) {
+      cumulativeFitness[i] =
+        cumulativeFitness[i - 1] + articles[i].popularity / totalPopularity;
+    }
+
+    var alreadySelected = Array(articles.length);
+    alreadySelected.fill(0);
+
+    var selected = 0;
+    var finalArray = [];
+
+    while (selected <= limit) {
+      var random = Math.random();
+      for (let i = 0; i <= articles.length - 1; i++) {
+        if (
+          cumulativeFitness[i] <= random &&
+          random <= cumulativeFitness[i + 1] &&
+          alreadySelected[i + 1] == 0
+        ) {
+          alreadySelected[i + 1] = 1;
+          selected++;
+
+          finalArray.push(articles[i + 1]);
+        }
+      }
+    }
+
+    return finalArray;
+  }
+
   searchArticleOnMedium(keyword) {
     let articlesToReturn = [];
 
