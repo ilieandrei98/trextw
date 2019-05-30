@@ -14,7 +14,9 @@ const app = new router(server);
 /*
 Microservices
 */
-require('./src/searchMicroservice/api/service')(app);
+// require('./src/searchMicroservice/api/service')(app);
+require('./src/groupsMicroservice/api/service')(app);
+require('./src/exampleMicroservice/api/service')(app);
 /*
 Utils
 */
