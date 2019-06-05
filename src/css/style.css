@@ -57,6 +57,7 @@ header .logo {
   margin-left: 20px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 header .logo span {
@@ -99,6 +100,17 @@ header .circle {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 14px;
+}
+
+
+.user button{
+    margin-left: 1rem;
+    border: none;
+    outline: none;
+    background: #d4d4d4;
+    padding: 0.5rem;
+    color: white;
+    cursor: pointer;
 }
 
 .user .arrow {

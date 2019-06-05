@@ -16,6 +16,8 @@ export default class Router {
                     this.show('app').then(() => {
                         this.el = document.getElementById("general-content");
                         window.groups.loadGroups();
+                        document.getElementById("header-username").textContent = window.localStorage.getItem("username");
+                        document.getElementById("header-logo").textContent = window.localStorage.getItem("username")[0];
                     })
                 }
             } else {

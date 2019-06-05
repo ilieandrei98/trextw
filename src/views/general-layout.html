@@ -1,5 +1,5 @@
 <header>
-    <div class="logo">
+    <div class="logo" onclick="app.router.goTo('app/newsfeed')">
         <div class="circle">T</div>
         <span>TReX Logo</span>
     </div>
@@ -12,9 +12,11 @@
         <i class="far fa-times-circle" onclick="closeSearch()"></i>
     </label>
     <div class="user">
-        <img src="src/assets/user.png" alt="TS">
-        <a class="name">Turcu Stefanel</a>
-        <i class="fas fa-angle-down arrow"></i>
+        <div class="circle">
+            <p id="header-logo">H</p>
+        </div>
+        <a class="name" id="header-username">Turcu Stefanel</a>
+        <button onclick="logout()">Log out</button>
     </div>
 </header>
 <div id="container" class="container">
