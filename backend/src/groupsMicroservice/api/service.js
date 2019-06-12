@@ -54,6 +54,35 @@ var service = function(app) {
     });
   });
 
+  //edit group
+  app.put(path, function (req, res) {
+    group.findById(req.body.groupId, (err,targetGroup) => {
+      if (err || !targetGroup) {
+        res.statusCode = 404;
+        res.end();
+      }
+
+      if (targetGroup.groupCreator == req.body.userId) {
+        if (req.body.groupName) {
+        targetGroup.groupName = req.body.groupName;
+        }
+        if (req.body.tags) {
+          targetGroup.tags = req.body.tags;
+        }
+        targetGroup.save();
+
+        res.statusCode = 200;
+        res.end();
+        return;
+      }
+      else {
+        res.statusCode = 403;
+        res.end();
+      }
+
+    })
+  })
+
   //join group
   app.post(path + "/join", function (req, res) {
     if (req.body.groupId&&req.body.userId) {
