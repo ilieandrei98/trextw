@@ -20,16 +20,30 @@ export default class Auth {
             window.localStorage.clear();
             window.localStorage.setItem('userId', rsp._id);
             window.localStorage.setItem('username', rsp.fullName);
-            window.user.fullName = rsp.fullName;
-            window.user.userId = rsp._id;
-            if (rsp.topics.length == 0) {
-                window.app.router.goTo("topics");
-            } else {
-                window.app.router.goTo("default");
-            }
-        }).catch(err => {
-            document.getElementById("login-error").textContent = "Ati introdus datele gresit!";
 
+            const authBody = JSON.stringify({
+                username: rsp.fullName
+            });
+
+            fetch(window.endPoint + '/api/authorization/', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: authBody
+            }).then(res => res.json()).then(data => {
+                window.localStorage.setItem("token", data.token);
+                window.user.fullName = rsp.fullName;
+                window.user.userId = rsp._id;
+                if (rsp.topics.length == 0) {
+                    window.app.router.goTo("topics");
+                } else {
+                    window.app.router.goTo("default");
+                }
+            });
+        }).catch(err => {
+            console.error(err);
+            document.getElementById("login-error").textContent = "Ati introdus datele gresit!";
         })
     };
 
@@ -61,7 +75,6 @@ export default class Auth {
             window.app.router.goTo("topics");
         }).catch(err => {
             document.getElementById("register-error").textContent = "Userul deja exista!";
-
         })
     }
 
