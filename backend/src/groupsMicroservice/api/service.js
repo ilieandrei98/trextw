@@ -1,4 +1,5 @@
 const group = require("../../shared/groupModel");
+const user = require("../../shared/userModel");
 
 const path = "/api/groups";
 
@@ -35,6 +36,72 @@ var service = function(app) {
       res.end();
     });
   });
+
+  //join group
+  app.post(path + "/join", function (req, res) {
+    if (req.body.groupId&&req.body.userId) {
+      group.findById(req.body.groupId, function (err, group) {
+        if (err||!group) {
+          res.statusCode = 404;
+          res.end();
+
+          return;
+        }
+        else {
+
+          user.findById(req.body.userId, function (err, user) {
+            if (err||!user) {
+              res.statusCode = 404;
+              res.end();
+
+              return;
+            }
+            else {
+              group.members.push(user);
+              group.save();
+              res.statusCode = 201;
+              res.end();
+
+              return;
+            }
+
+          })
+
+        }
+
+      })
+    }
+  })
+
+  //leave group
+  app.delete(path + "/leave", function (req, res) {
+    if (req.body.groupId && req.body.userId) {
+      group.findById(req.body.groupId, function (err, group) {
+        if (err || !group) {
+          res.statusCode = 404;
+          res.end();
+
+          return;
+        }
+        else {
+          if (group.members.indexOf(req.body.userId)==-1) {
+            res.statusCode = 404;
+            res.end();
+
+            return;
+          }
+          else {
+            group.members.splice(group.members.indexOf(req.body.userId), 1);
+            group.save();
+            res.statusCode = 204;
+            res.end();
+            
+            return;
+          }
+        }
+      })
+    }
+  })
 
   app.post(path, function(req, res) {
     var tags = req.body.tags;
