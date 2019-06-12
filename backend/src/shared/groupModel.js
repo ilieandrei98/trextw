@@ -15,6 +15,12 @@ const groupSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
+  groupCreator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  }
+  ,
   tags: {
     type: [tagSchema],
     required: true

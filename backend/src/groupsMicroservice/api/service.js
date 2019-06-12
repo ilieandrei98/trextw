@@ -27,13 +27,30 @@ var service = function(app) {
   });
 
   app.delete(path + "/:id", function(req, res) {
-    group.findOneAndDelete(req.params[0], (err, group) => {
+    group.findById(req.params[0], (err, targetGroup) => {
       if (err) {
         res.end(JSON.stringify(err));
       }
 
-      res.statusCode = 204;
-      res.end();
+      if (!req.body.userId) {
+        req.statusCode = 404;
+        res.end();
+        return;
+      }
+      if (targetGroup.groupCreator == req.body.userId) {
+        group.findByIdAndDelete(targetGroup.id, (err, targetGroup) => {
+          if (err) {
+            res.end(JSON.stringify(err));
+          }
+
+          res.statusCode = 204;
+          res.end();
+        })
+      }
+      else {
+        res.statusCode = 403;
+        res.end();
+      }
     });
   });
 
@@ -103,7 +120,8 @@ var service = function(app) {
     }
   })
 
-  app.post(path, function(req, res) {
+  app.post(path, function (req, res) {
+  
     var tags = req.body.tags;
     req.body.tags = [];
 
@@ -115,7 +133,15 @@ var service = function(app) {
 
       req.body.tags.push(tag);
     });
+    if (req.body.members) {
+      req.body.members.push(req.body.groupCreator);
+    }
+    else {
+      req.body.members = [req.body.groupCreator];
+    }
 
+    console.log(req.body);
+    
     var model = new group(req.body);
     model
       .save()
