@@ -379,6 +379,7 @@ body {
 }
 
 .loader-overlay {
+  display: none;
   position: absolute;
   justify-content: center;
   align-items: center;

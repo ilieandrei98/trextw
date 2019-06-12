@@ -36,7 +36,23 @@ export default class Readmore {
                 <div class="article-content">${rsp.text.replaceAll('\n', '<br><br>&nbsp&nbsp&nbsp&nbsp')}</div>
                 <div id="article-like-button">${isLiked?'Liked':'Like!'}</div>
             </div>
-            `
-        })
+            `;
+
+            var data = { "userId": localStorage.getItem("userId") };
+            document.getElementById("article-like-button").onclick = function () {
+                isLiked = true;
+                fetch(window.endPoint+"/api/articles/"+id+"/likes/add", {
+                    method: 'POST',
+                   
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                  
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                document.getElementById("article-like-button").innerHTML = "Liked";
+            }
+        });
     }
 }
