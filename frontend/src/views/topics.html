@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="src/css/topic-choice.css" />
+<link rel="stylesheet" href="src/css/background-anim.css" />
+<div class="topics-container">
+  <object id="cloud-background" type="image/svg+xml" data="src/assets/background.svg">
+    <img src="src/assets/background.svg" />
+  </object>
+
+  <!-- #region  -->
+  <div class="topic-choice-container">
+    <div id="topics-container">
+      <p id="topics-title">
+        Buna, <strong id="fullname"></strong>! Alege ariile de interes
+      </p>
+      <div class="topic-list" id="topic-list">
+        <template>
+          <div class="topic-item topic-item-inactive">
+            <p>
+
+            </p>
+          </div>
+        </template>
+      </div>
+      <div id="chosen-topics">
+        <template>
+          <div class="topic-miniature"></div>
+        </template>
+      </div>
+      <input type="button" value="Continue" id="continue-button" onclick="pages[0].proceed()"/>
+    </div>
+  </div>
+  <!-- #endregion -->
+</div>

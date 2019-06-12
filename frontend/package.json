@@ -1,0 +1,11 @@
+{
+    "scripts": {
+        "start": "light-server -s . --port=6969"
+    },
+    "files": [
+        "./src/js/app.js"
+    ],
+    "dependencies": {
+        "light-server": "^2.6.1"
+    }
+}

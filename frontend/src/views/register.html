@@ -1,0 +1,16 @@
+<div class="view">
+    <form class="sign-up-container padded-container" id="register-form" onsubmit="app.auth.registerUser(event)">
+        <h1 class="sign-up-title">TReX</h1>
+        <input class="sign-up-input" type="text" name="fullName" placeholder="Full Name" required>
+        <input class="sign-up-input" type="text" name="username" placeholder="Username" required>
+        <input class="sign-up-input" type="password" name="password" placeholder="Password" required>
+        <input class="sign-up-input" type="password" name="repeatPassword" placeholder="Repeat Password" required>
+        <input class="sign-up-input" type="email" name="email" placeholder="Email" required>
+        <div class="agreement">
+            <input id="terms-checkbox" type="checkbox" name="checkbox" required>
+            <label for="checkbox" class="sign-up-helper-text">Accept termenii si conditiile</label>
+        </div>
+        <p id="register-error"></p>
+        <button class="sign-up-button" type="submit">Register</button>
+    </form>
+</div>

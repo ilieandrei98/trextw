@@ -1,0 +1,23 @@
+<div class="popup" style="display: none" id="join-group-modal">
+    <div class="overlay"></div>
+
+    <div class="container-wrapper">
+        <div class="sign-up-container popup-container">
+            <h1 class="sign-up-title popup-title">
+                Join new group
+            </h1>
+            <div class="tags">
+                <p class="sign-up-helper-text popup-subtitle">Groups</p>
+                <div class="tags-container" id="group-tags-container">
+                </div>
+                <p class="sign-up-helper-text popup-subtitle">Chosen Group</p>
+                <div class="tags-container" id="group-chosen-group">
+                </div>
+            </div>
+            <div class="popup-buttons">
+                <button class="sign-up-button" onclick="groups.joinGroup()">JOIN</button>
+                <button class="sign-up-button button-empty" onclick="groups.cancel('join-group-modal')">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</div>
