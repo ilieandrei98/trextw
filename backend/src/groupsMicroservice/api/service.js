@@ -192,7 +192,7 @@ var service = function(app) {
             return;
         }
 
-        result.members.push(req.body.userId);
+        result.members.push(req.body.groupCreator);
         result
           .save()
           .then(function(response) {

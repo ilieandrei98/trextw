@@ -1,6 +1,7 @@
 import Readmore from "./readmore.js";
 
 export default class Router {
+    self = this;
     constructor(routes, el) {
         this.routes = routes;
         this.el = el;
@@ -27,7 +28,7 @@ export default class Router {
                 });
             } else{
                 if(window.location.hash != "#register" && window.location.hash != "#topics")
-                    setTimeout(function(){this.goTo('login');}, 500);
+                    setTimeout(function(){self.goTo('login');}, 500);
             }
 
             const pageName = window.location.hash.substr(1);

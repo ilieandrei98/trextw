@@ -23,6 +23,67 @@
     <script type="module" src='src/js/app.js'></script>
 
     <script>
+        function search(e) {
+            if (e.keyCode == 13) {
+                var vals = document.getElementById("search-input").value;
+                if(vals !== ""){
+                    const firstWord = vals.split(' ')[0];
+                document.getElementById("feed-title").innerText = `Results for ${vals}`;
+                    fetch(window.endPoint + "/api/articles/" + "search?keyword=" + firstWord)
+                        .then(res => res.json())
+                        .then(data => addArticlesToPage(data));
+                } else {
+                    window.location.hash = "#app/refresh";
+                }
+                return false;                
+            }
+        }
+
+        function addArticlesToPage(rsp) {
+            let temp, item, articleTemplate;
+            temp = document
+                .getElementById("content-list")
+                .getElementsByTagName("template")[0];
+            let contentList = document.getElementById("content-list");
+            contentList.innerHTML = "";
+            contentList.appendChild(temp);
+                
+            item = temp.content.querySelector("div");
+
+            rsp.forEach(article => {
+                articleTemplate = document.importNode(item, true);
+                articleTemplate
+                    .getElementsByClassName("article-footer")[0]
+                    .getElementsByTagName("a")[0]
+                    .addEventListener("click", openArticle.bind({}, article._id));
+
+                articleTemplate.getElementsByClassName("article-title")[0].textContent = article.title;
+                articleTemplate.getElementsByClassName("popularity-score")[0].textContent = `${article.popularity} likes`;
+                articleTemplate.getElementsByClassName("article-content")[0].textContent = article.previewContent;
+
+                let tempHtml = "";
+                article.tags.forEach(tag => {
+                    if (tag) {
+                        tempHtml += `<div class="tag-label article-tag-label">${tag}</div>`;
+                    }
+                });
+
+                articleTemplate
+                    .getElementsByClassName("article-footer")[0]
+                    .getElementsByTagName("div")[0].innerHTML = tempHtml;
+
+                document.getElementById("content-list").appendChild(articleTemplate);
+
+                var filter = document.getElementsByClassName("filters-container")[0];
+                filter.style.display = "block";
+            });
+        }
+
+        
+        function openArticle(id){
+            window.app.router.goTo("app/readmore/id/" + id);
+        }
+
         function showMenu() {
             var elements = document.getElementsByClassName("mobile-menu");
 
@@ -35,8 +96,7 @@
         }
 
         function closeMenu() {
-            if(window.screen.width > 768)
-            {
+            if (window.screen.width > 768) {
                 return;
             }
 
@@ -186,7 +246,7 @@
                 }
                 fetch(`${window.endPoint}/api/groups/${this.selectedGroup._id}/insert-user`, {
                     method: "POST", body: JSON.stringify({
-                        userId: window.localStorage.getItem("userId"),
+                        groupCreator: window.localStorage.getItem("userId"),
                     })
                 }).then((response) => {
                     if (response.ok) {
@@ -204,7 +264,7 @@
 
         window.groups = new Groups();
 
-        function logout(){
+        function logout() {
             window.localStorage.clear();
             window.app.router.goTo('login');
         }
