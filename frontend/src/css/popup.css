@@ -52,6 +52,26 @@
     display:inline-block
 }
 
+#group-chosen-group{
+    min-height: 30px;
+}
+
+.join-target-group{
+    margin-top:0;
+}
+
+.group-list-label{
+    width:100%;
+    
+    color:#6A7284;
+    font-weight: lighter;
+    user-select: none;
+    padding:7px 15px;
+}
+.group-list-label:hover{
+    background-color:rgb(243, 243, 243);
+}
+
 @media screen and (max-width : 780px) {
     .popup-container {
         padding: 0 30px;

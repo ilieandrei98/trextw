@@ -10,6 +10,8 @@ export default class Router {
     }
 
     async hashChanged(ev) {
+        var goto = this.goTo;
+
         if (window.location.hash.length >= 0) {
             const token = localStorage.getItem("token");
             if(token){
@@ -28,7 +30,7 @@ export default class Router {
                 });
             } else{
                 if(window.location.hash != "#register" && window.location.hash != "#topics")
-                    setTimeout(function(){self.goTo('login');}, 500);
+                    setTimeout(function(){goto('login');}, 500);
             }
 
             const pageName = window.location.hash.substr(1);
