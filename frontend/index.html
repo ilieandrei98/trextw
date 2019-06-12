@@ -124,7 +124,7 @@
                 }).then((rsp) => {
                     this.groups = rsp;
                     rsp.forEach(tag => {
-                        document.getElementById("group-tags-container").innerHTML += `<div class="tag-label" onclick="groups.selectGroup('${tag._id}')">${tag.groupName}</div>`;
+                        document.getElementById("group-tags-container").innerHTML += `<div class="group-list-label" onclick="groups.selectGroup('${tag._id}')">${tag.groupName}</div>`;
                     })
                 })
 
@@ -133,7 +133,7 @@
             selectGroup = (id) => {
                 this.selectedGroup = this.groups.filter(group => group._id == id)[0];
                 console.log(this.selectedGroup);
-                document.getElementById("group-chosen-group").innerHTML = `<div class="tag-label" onclick="groups.removeAdded('${id}')" id="${id}">${this.selectedGroup.groupName}</div>`;
+                document.getElementById("group-chosen-group").innerHTML = `<div class="tag-label join-target-group" onclick="groups.removeAdded('${id}')" id="${id}">${this.selectedGroup.groupName}</div>`;
             }
 
             removeAdded = (id) => {
