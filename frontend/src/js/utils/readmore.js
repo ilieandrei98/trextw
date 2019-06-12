@@ -16,6 +16,7 @@ export default class Readmore {
             rsp.tags.forEach(tag => {
                 tagsHTML += `<div class="tag-label article-tag-label">${tag}</div>`;
             });
+            var isLiked = false;
             document.getElementById("readmore-article").innerHTML = `
             <div class="article-image" style="background-image: url(https://cdn-images-1.medium.com/max/1600/${rsp.previewImage})">
 
@@ -33,6 +34,7 @@ export default class Readmore {
                     </div>
                 </div>
                 <div class="article-content">${rsp.text.replaceAll('\n', '<br><br>&nbsp&nbsp&nbsp&nbsp')}</div>
+                <div id="article-like-button">${isLiked?'Liked':'Like!'}</div>
             </div>
             `
         })

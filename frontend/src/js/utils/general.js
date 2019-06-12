@@ -10,7 +10,6 @@ export default class General {
   }
 
   loadArticles() {
-    this.startLoading();
     fetch(
       `${this.baseUrl}/api/articles/preferences/${window.localStorage.getItem(
         "userId"
