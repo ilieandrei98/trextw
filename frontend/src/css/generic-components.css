@@ -12,6 +12,7 @@ body {
 
 .sign-up-helper-text:hover {
   color: #4d4f5c;
+  cursor: pointer;
 }
 
 .sign-up-input {

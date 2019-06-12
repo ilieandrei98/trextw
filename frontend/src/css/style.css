@@ -367,3 +367,17 @@ html,
 body {
   font-family: "Roboto", sans-serif;
 }
+
+.button-log-out {
+  background: none !important;
+  color: rgba(106, 114, 132, 0.5) !important;
+  transition: 0.3s;
+}
+
+.button-log-out:hover {
+  color: rgb(106, 114, 132) !important;
+}
+
+.loader-overlay {
+  display: none;
+}

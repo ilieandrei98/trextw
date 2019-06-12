@@ -8,7 +8,7 @@ class ArticleManager {
   }
 
   searchArticleInDatabase(keyword) {
-    keyword = keyword.string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    keyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     let query = {
       $or: [
         { text: new RegExp(".*" + keyword + ".*") },

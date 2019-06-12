@@ -45,8 +45,8 @@ class Topics {
     //get the DIV element from the template:
     item = temp.content.querySelector("div");
     //for each item in the array:
+    
     this.topics.forEach(topic => {
-
       //Create a new node, based on the template:
       a = document.importNode(item, true);
       a.addEventListener("click", this.addTopic.bind(this, topic))

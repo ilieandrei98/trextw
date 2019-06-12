@@ -35,6 +35,11 @@
         }
 
         function closeMenu() {
+            if(window.screen.width > 768)
+            {
+                return;
+            }
+
             var elements = document.getElementsByClassName("mobile-menu");
 
             for (var i = 0; i < elements.length; i++) {
@@ -88,6 +93,7 @@
             }
 
             openCreateGroupModal() {
+                closeMenu();
                 document.getElementById("add-group-modal").style = "display:block";
                 fetch(`${window.endPoint}/api/tags/default`, { method: "GET" }).then((response) => {
                     if (response.ok) {
@@ -96,6 +102,7 @@
                         throw new Error('Something went wrong');
                     }
                 }).then((rsp) => {
+                    document.getElementById("tags-container").innerHTML = "";
                     rsp.forEach(tag => {
                         document.getElementById("tags-container").innerHTML += `<div class="tag-label" onclick="groups.addTopic('${tag.tagName}')">${tag.tagName}</div>`;
                     })
@@ -104,6 +111,7 @@
             }
 
             openJoinGroupModal() {
+                closeMenu();
                 document.getElementById("join-group-modal").style = "display:block";
                 document.getElementById("group-chosen-group").innerHTML = '';
                 document.getElementById("group-tags-container").innerHTML = '';

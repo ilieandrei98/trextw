@@ -11,6 +11,7 @@
     z-index: 100;
     background: #6A7284;
     opacity: 0.5;
+    overflow-y: hidden;
 }
 
 .container-wrapper {
@@ -19,7 +20,7 @@
     position: absolute;
     top:0;
     left: 0;
-    z-index: 101;
+    z-index: 200;
     display: flex;
     justify-content: center;
     align-items: center;

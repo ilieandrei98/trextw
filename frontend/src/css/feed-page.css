@@ -44,8 +44,6 @@
     flex-wrap: wrap;
 }
 
-.article-header.readmore > .article-labels {}
-
 .article-source {
     margin: 0.5rem 0 0.5rem 0;
 }
@@ -125,7 +123,6 @@
 }
 
 .tag-list {
-    display: flex;
     flex-direction: row;
 }
 
