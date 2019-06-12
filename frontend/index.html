@@ -225,7 +225,7 @@
                     method: "POST", body: JSON.stringify({
                         groupName: name,
                         tags: this.chosenTopics,
-                        members: [window.localStorage.getItem("userId")]
+                        groupCreator:localStorage.getItem("userId")
                     })
                 }).then((response) => {
                     if (response.ok) {
