@@ -4,12 +4,27 @@ export default class General {
     this.loadArticles();
   }
 
-  startLoading() {
-    var filter = document.getElementsByClassName("filters-container")[0];
-    filter.style.display = "none";
+  async checkElement(selector) {
+    while (document.getElementsByClassName(selector) === null) {
+        await this.rafAsync()
+    }
+    return true;
+  }
+
+  rafAsync() {
+      return new Promise(resolve => {
+          requestAnimationFrame(resolve);
+      });
   }
 
   loadArticles() {
+    this.checkElement('filters-container').then(element => {      
+          //document.getElementsByClassName("filters-container")[0].classList.add("not-none-class");
+          document.getElementsByClassName("filters-container")[0].style.display = "none";
+          document.getElementsByClassName("feed-title")[0].style.display = "none";
+          document.getElementsByClassName("loader-overlay")[0].style.display = "block";
+    });
+
     fetch(
       `${this.baseUrl}/api/articles/preferences/${window.localStorage.getItem(
         "userId"
@@ -25,6 +40,11 @@ export default class General {
       })
       .then(rsp => {
         addArticlesToPage.call(this,rsp);
+        this.checkElement('filters-container').then(element => {      
+          document.getElementsByClassName("filters-container")[0].style.display = "block";
+          document.getElementsByClassName("feed-title")[0].style.display = "block";
+          document.getElementsByClassName("loader-overlay")[0].style.display = "none";
+        });
       });
     }
 }

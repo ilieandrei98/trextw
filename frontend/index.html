@@ -39,7 +39,26 @@
             }
         }
 
+        async function checkElement(selector) {
+            while (document.getElementsByTagName(selector) === null) {
+                await this.rafAsync()
+            }
+            return true;
+        }
+
+        function rafAsync() {
+            return new Promise(resolve => {
+                requestAnimationFrame(resolve);
+            });
+        }
+        
         function addArticlesToPage(rsp) {
+            this.checkElement('template').then(element => {      
+                addArticlesToPageDecorated(rsp);
+            });
+        }
+
+        function addArticlesToPageDecorated(rsp) {
             let temp, item, articleTemplate;
             temp = document
                 .getElementById("content-list")
