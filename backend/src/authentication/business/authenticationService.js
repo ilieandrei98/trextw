@@ -1,8 +1,11 @@
 const userModel = require('../../shared/userModel');
 const userDto = require('../models/userDto');
+const crypto = require('crypto');
 
 class authenticationService {
     register(data, callback, onError) {
+        data.password = crypto.createHash('sha256').update(data.password).digest('base64');
+
         var user = new userModel(data);        
         user.save(function(err, data){
             if(err){
@@ -42,7 +45,7 @@ class authenticationService {
     login(data, callback, onError){
         var searchResult = userModel.find({
             username: data.username,
-            password: data.password
+            password: crypto.createHash('sha256').update(data.password).digest('base64')
         });
 
         searchResult.then(function (data) {
