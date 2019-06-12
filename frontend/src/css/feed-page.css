@@ -171,8 +171,8 @@
 }
 
 .filters-container {
-    min-height: 18.75rem;
-    max-height: 24rem;
+    min-height: 9.75rem;
+    max-height: 10rem;
     max-width: 13.75rem;
     background-color: white;
     border-style: solid;

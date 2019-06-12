@@ -1,5 +1,3 @@
-const userModel = require('../../shared/userModel');
-const userDto = require('../models/userDto');
 const jwt = require('jsonwebtoken');
 
 class authorizationService {
