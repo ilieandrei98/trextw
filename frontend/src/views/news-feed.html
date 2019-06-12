@@ -33,22 +33,10 @@
                 <div class="populaity-slider-container">
                     <p class="filter-subtitle">Popularity</p>
                     <div class="popularity-slider-value">
-                        <p class="popularity-filter-score">7.8</p>
+                        <p class="popularity-filter-score" id="popularity-filter-score">78</p>
                         <div class="popularity-slider-container">
-                            <input type="range" min="1" max="100" value="78" class="popularity-slider">
+                            <input type="range" min="1" max="100000" value="78" class="popularity-slider" id="popularity-slider" onchange="updateFilter(this.value)">
                         </div>
-                    </div>
-                </div>
-                <div class="tag-filter-container">
-                    <p class="filter-subtitle">Tags</p>
-                    <div class="tag-filter">
-                        <div class="tag-label">HTML&CSS</div>
-                        <div class="tag-label">Angular</div>
-                        <div class="tag-label">React</div>
-                        <div class="tag-label">.NET</div>
-                        <div class="tag-label">Vue Js</div>
-                        <div class="tag-label">Fancy Design</div>
-                        <div class="tag-label">Deja.Vu</div>
                     </div>
                 </div>
             </div>

@@ -25,6 +25,7 @@ export default class General {
         }
       })
       .then(rsp => {
+        articleHelper.setArticles(rsp);
         addArticlesToPage.call(this,rsp);
       });
     }
