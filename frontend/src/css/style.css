@@ -400,13 +400,6 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.filters-container {
-  display: none;
-}
-
-.feed-title {
-  display: none;
-}
 
 .not-none-class {
   display: block;
