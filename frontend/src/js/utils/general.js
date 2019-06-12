@@ -4,17 +4,7 @@ export default class General {
     this.loadArticles();
   }
 
-  startLoading() {
-    var filter = document.getElementsByClassName("filters-container")[0];
-    filter.style.display = "none";
-  }
-
-  finishLoading() {
-
-  }
-
   loadArticles() {
-    this.startLoading();
     fetch(
       `${this.baseUrl}/api/articles/preferences/${window.localStorage.getItem(
         "userId"
@@ -28,7 +18,9 @@ export default class General {
           throw new Error("Something went wrong");
         }
       })
-      .then(rsp => {
+      .then(rsp => {       
+        // this.startLoading();
+
         let temp, item, articleTemplate;
         temp = document
           .getElementById("content-list")
@@ -42,9 +34,15 @@ export default class General {
             .getElementsByTagName("a")[0]
             .addEventListener("click", this.openArticle.bind({}, article._id));
 
-          articleTemplate.getElementsByClassName("article-title")[0].textContent = article.title;
-          articleTemplate.getElementsByClassName("popularity-score")[0].textContent = `${article.popularity} likes`;
-          articleTemplate.getElementsByClassName("article-content")[0].textContent = article.previewContent;
+          articleTemplate.getElementsByClassName(
+            "article-title"
+          )[0].textContent = article.title;
+          articleTemplate.getElementsByClassName(
+            "popularity-score"
+          )[0].textContent = `${article.popularity} likes`;
+          articleTemplate.getElementsByClassName(
+            "article-content"
+          )[0].textContent = article.previewContent;
 
           let tempHtml = "";
           article.tags.forEach(tag => {
@@ -58,13 +56,29 @@ export default class General {
             .getElementsByTagName("div")[0].innerHTML = tempHtml;
 
           document.getElementById("content-list").appendChild(articleTemplate);
-          
-          var filter = document.getElementsByClassName("filters-container")[0];
-          filter.style.display = "block";
         });
+        
+        // this.finishLoading();
       });
   }
+/*
+  startLoading() {
+    document.getElementsByClassName("loader-overlay")[0].classList.add('not-none-class');
 
+    document.getElementsByClassName("filters-container")[0].classList.add('none-class');
+    document.getElementsByClassName("feed-title")[0].classList.add('none-class');
+  }
+
+  finishLoading() {
+    var loader = document.getElementsByClassName("loader-overlay")[0];
+    loader.style.display = "none";
+
+    var filter = document.getElementsByClassName("filters-container")[0];
+    var title = document.getElementsByClassName("feed-title")[0];
+    filter.style.display = "block";
+    title.style.display = "block";
+  }
+*/
   openArticle = id => {
     window.app.router.goTo("app/readmore/id/" + id);
   };
