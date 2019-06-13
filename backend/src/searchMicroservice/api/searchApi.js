@@ -104,6 +104,7 @@ var service = function(app) {
               }
             });
 
+            /*
             let total = 0;
             for (let i = 0; i < user.topics.length; i++) {
               total += user.topics[i].relevance;
@@ -122,7 +123,7 @@ var service = function(app) {
             var userToSave = new userModel(user);
             userToSave.save().catch(function(err) {
               res.end(err);
-            });
+            });*/
 
             res.end();
           })

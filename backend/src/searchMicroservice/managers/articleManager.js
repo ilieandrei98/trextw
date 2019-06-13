@@ -31,7 +31,7 @@ class ArticleManager {
   }
 
   async wheelOfFortune(articles, limit) {
-    if(limit == 0) {
+    if(limit <= 0) {
       return [];
     }
 
