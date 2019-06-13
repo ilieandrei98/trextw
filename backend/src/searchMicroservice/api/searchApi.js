@@ -115,7 +115,7 @@ var service = function(app) {
               );
               
               if(user.topics[i].relevance == 0) {
-                user.topics[i].relevance = 1;
+                // user.topics[i].relevance = 1;
               }
             }
 

@@ -41,17 +41,16 @@ export default class Readmore {
             var data = { "userId": localStorage.getItem("userId") };
             document.getElementById("article-like-button").onclick = function () {
                 isLiked = true;
-                fetch(window.endPoint+"/api/articles/"+id+"/likes/add", {
-                    method: 'POST',
-                   
+                fetch(window.endPoint + "/api/articles/" + id + "/likes/add", {
+                    method: 'POST',                   
                     headers: {
                         'Content-Type': 'application/json'
-                    },
-                  
+                    },                  
                     body: JSON.stringify(data)
                 })
-                .then(response => response.json())
-                document.getElementById("article-like-button").innerHTML = "Liked";
+                .then(response => {
+                    document.getElementById("article-like-button").innerHTML = "Liked";
+                });
             }
         });
     }
