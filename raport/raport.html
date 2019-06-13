@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Atter - report</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body vocab="http://schema.org/" typeof="schema:ScholarlyArticle" resource="#article">
+    <header>
+      <h1 property="headline">TReX - report</h1>
+      <img href="images/login_image" property="image">
+    </header>
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd vocab="http://schema.org/" typeof="Person" property="author">
+            <span property="name">Hriscu Ovidiu-Constantin</span>
+            (<a href="mailto:hriscuo@gmail.com" property="email" typeof="URL">hriscuo@gmail.com</a>)
+        </dd>
+        <dd vocab="http://schema.org/" typeof="Person" property="author">
+            <span property="name">Turcu Ștefănel-Iulian</span>
+            (<a href="mailto:turcu.98.stefanel@gmail.com" property="email" typeof="URL">turcu.98.stefanel@gmail.com</a>)
+        </dd>
+        <dd vocab="http://schema.org/" typeof="Person" property="author">
+            <span property="name">Ilie Andrei</span>
+            (<a href="mailto:ilandrei98@gmail.com" property="email" typeof="URL">ilandrei98@gmail.com</a>)
+        </dd>
+        <dd vocab="http://schema.org/" typeof="Person" property="author">
+            <span property="name">Cărbune Bogdan</span>
+            (<a href="mailto:carbune.bogdan@yahoo.com" property="email" typeof="URL">carbune.bogdan@yahoo.com</a>)
+        </dd>
+
+        <dt>Stages of project development</dt>
+        <dd>
+          The stages and the tasks done by each member can be seen on <a href="https://trello.com/b/1oo4gp4z/tehnologii-web?fbclid=IwAR3WkxFTUor7BEy-JVt4H-ALWjQsZst9hDoHE__oKBVjapLOfELmLewo6OQ">trello</a>.
+        </dd>
+      </dl>
+    </div>
+    <section property="backstory" id="abstract" role="doc-abstract" >
+      <h2 property="description">Abstract</h2>
+      <p>
+            Topic-based Resource eXplorer is an application designed for everyone willing to gain knowledge in any Computer Science field. TReX is a tool that gathers articles 
+            from Medium platform, related to an IT subject. The resources are grouped by tags, and provided to specific persons or groups sharing common interests.
+      </p>
+    </section>
+    <section id="functional" role="contentinfo">
+      <h2 property="description">Functional part</h2>
+      <p property="text">
+        TReX is a Single Page Application, dynamically loading content into the current page without loading an entire page from the server. In this way Atter diminish the necessity of the browser to perform requests to the server which impact in the velocity of the application and the user experience. 
+        The concepts used to achieve a Single Page Application are: </br>
+        <ul>
+            <li>
+                Models: </br> contains and manages the data through REST requests. </br>
+                A model emits change events when data is altered. Also it can be stored persistently, identified uniquely and loaded from storage.
+            </li>
+            <li>
+                View: </br> reflects the content of a model, when a model changes its data, the view is updated. It displays a representation of the model and receives the user's interaction with the view. The view renders a html template that will be placed in dom at the right moment.
+            </li>
+        </ul>
+      </p>
+      <section id="login" role="contentinfo">
+        <!-- review? -->
+        <h3 property="description">Login/ Register</h3>
+        <p  property="text">
+            The login is made based on the email used when first registering the account.</br>
+            When registering an account, the user provides its credentials, also they must specify at least three topics of interest.
+        </p>
+      </section>
+      <section id="attendRegister" role="contentinfo" >
+        <!-- review? -->
+        <h3 property="description">News feed</h3>
+        <p  property="text">
+           After login, the user is redirected to the News feed page where they can see scroll through articles selected based on its interests. 
+           In the left part of the page the users see a menu with the groups they are a part of. Also they can JOIN an existing group or CREATE a group oriented on a specific subject.
+           For a better user experience, the news feed page provides filters, so that the user can get the articles classified by popularity.
+      </section>
+      <section id="check" role="contentinfo">
+        <!-- review? -->
+        <h3 property="description">Menu options</h3>
+        <p  property="text">
+            As previously specified, the menu of the application is the part witch gathers some key functionalities.
+        </p>
+        <section id="studentsCheck" role="contentinfo">
+            <h4 property="description">Create group</h4>
+            <p  property="text">
+                An user can create a group based on one or more subjects, identified by tags. Once created, the group retrieves all the articles from Medium related to the chosen topic and displays it in a news feed.
+            </p>
+        </section>
+        <section id="professorsCheck" role="contentinfo">
+            <h4 property="description">Join group</h4>
+            <p  property="text">
+                    The join group option makes it easier for a user to acces articles sharing a common subject. All that a user has to do is press on the "Join group" line.
+            </p>
+        </section>
+      </section>
+      <section id="logout" role="contentinfo">
+        <!-- review? -->
+        <h3 property="description">Logout</h3>
+        <p  property="text">
+            Gets the user back to login page.
+        </p>
+      </section>
+    </section>
+    <section id="technical" role="contentinfo">
+        <h2 property="description">Technical part</h2>
+        <p property="text">
+            The functionalities of the application are structured so each step of the interaction will be in fact a service:
+        </p>
+        <section id="diagrams" role="contentinfo">
+            <!-- review? -->
+            <h3 property="description">Diagrams</h3>
+            <section id="architectural" role="contentinfo">
+                <h4 property="description">Architectural</h4>
+                <figure vocab="http://schema.org/" typeof="ImageObject">
+                    <img src="images/a.png" alt="Architectural diagram" property="contentUrl" width="600" height="800">
+                    <img src="images/b.png" alt="Architectural diagram" property="contentUrl"  width="600" height="800">
+                    <img src="images/c.png" alt="Architectural diagram" property="contentUrl" width="600" height="800">
+                    <img src="images/d.png" alt="Architectural diagram" property="contentUrl"  width="600" height="800">
+
+                </figure>
+            </section>
+            <section id="usecase" role="contentinfo">
+                <h4 property="description">Use-case</h4>
+                <figure vocab="http://schema.org/" typeof="ImageObject">
+                    <img src="images/use cases.jpg" alt="Use Case" property="contentUrl">
+                </figure>
+            </section>
+            <section id="designPatterns" role="contentinfo">
+                <h4 property="description">Architectural Patterns</h4>
+                <section id="prototype" role="contentinfo">
+                    <h5 property="description">Model-View-Controller</h5>
+                    <figure vocab="http://schema.org/" typeof="ImageObject">
+                        <p property="description">
+                            <strong>The Model</strong> contains only the pure application data, it contains no logic describing how to present the data to a user.</br>
+                             <strong>The View </strong> presents the model’s data to the user. The view knows how to access the model’s data, but it does not know what this data means or what the user can do to manipulate it.</br>
+                             <strong>The Controller</strong> exists between the view and the model. It listens to events triggered by the view (or another external source) and executes the appropriate reaction to these events. In most cases, the reaction is to call a method on the model. Since the view and the model are connected through a notification mechanism, the result of this action is then automatically reflected in the view.
+                       
+                    </figure>
+                </section>
+                <section id="modules" role="contentinfo">
+                    <h5 property="description">Service based architecture</h5>
+                    <figure vocab="http://schema.org/" typeof="ImageObject">
+                        <p property="description">
+                            For modularity each main functionality was build as a service, currently all the services depend on a single server. The services are:</br>
+                            <strong>Authentication</strong> : provides de authentication/register functionality.</br>
+                            <strong>Search</strong> : calls the Medium Api and extracts articles based on specific parameters.</br>
+                            <strong>Groups handler</strong> : provides the functionality for creating a group and joining a group. </br>
+                            <strong>Tags management</strong>                     
+
+                        </p>
+                    </figure>
+                </section>
+            </section>
+        </section>
+        <section id="techDetails" role="contentinfo">
+            <!-- review? -->
+            <h3 property="description">Technical Details</h3>
+            <section id="apis" role="contentinfo">
+                <h4 property="description">Http methods handler</h4>
+                <p>
+                </p>
+                <section id="router" role="contentinfo">
+                    <h5 property="description">REST API CALLS</h5>
+                    <figure vocab="http://schema.org/" typeof="ImageObject">
+                        <p property="description">
+                            <ul>
+                                <li>
+                                    For handling REST calls we've implemented a router based on the Strategy design pattern, this simulated simulates the functionality provided by the Express framework. 
+                                    <pre><code>
+router.prototype = {
+    get: function (path, handler) {
+        if (!handlers[path]) {
+            handlers[path] = [];
+        }
+        handlers[path]['GET'] = handler;
+    },
+    post: function (path, handler) {
+        if (!handlers[path]) {
+            handlers[path] = [];
+        }
+        handlers[path]['POST'] = handler;
+    },
+    put: function (path, handler) {
+        if (!handlers[path]) {
+            handlers[path] = [];
+        }
+        handlers[path]['PUT'] = handler;
+    },
+    delete: function (path, handler) {
+        if (!handlers[path]) {
+            handlers[path] = [];
+        }
+        handlers[path]['DELETE'] = handler;
+    }
+};
+                        </code></pre>
+                                </br>We've created the handlers dictionary. You can add a handler with one of the methods ( post, put, get), the handler will be caller whenever the path specified on the client side matches it.
+                                    <pre><code>
+                            var service = function(app) {
+  app.get(path, function(req, res) {
+    group.find({}, function(err, groups) {
+      res.end(JSON.stringify(groups));
+    });
+  });
+
+                            }
+                        </code></pre>
+
+                                </li>
+                               
+                        </p>
+                    </figure>
+                    
+                </section>
+                <section id="jwt" role="contentinfo">
+                    <h5 property="description">JWT Authentication and Authorization</h5>
+                    <p>
+                       Using and NPM package we build a token using a secret key kept in a config file. In the JWT token we store the username and the expiration date ( the token always expires in an hour).
+                    </p>
+                    
+                </section>
+                <section id="api" role="contentinfo">
+                    <h5 property="description">Medium Api</h5>
+                    <figure vocab="http://schema.org/" typeof="ImageObject">
+                        <p property="description">
+                                <p>
+                                   “Medium taps into the brains of the world’s most insightful writers, thinkers, and storytellers to bring you the smartest takes on topics that matter. So whatever your interest, you can always find fresh thinking and unique perspectives.”
+                                </p>
+                                <p>
+                                    We use the Apis provided by Medium for extracting and displaying the articles based on the tags chosen by the user. We use the endpoint https://medium.com/search?q=keyword
+                                    to extract :
+								    •	id-ul</br>
+									•	title</br>
+									•	previewContent (textul din cele doua paragrafe concatenat)</br>
+									•	virtual -> recomands (vom folosi pentru a stabili o estimare initiala a popularitatii articolului)</br>
+
+                    </figure>
+                </section>
+            </section>
+            <section id="database" role="contentinfo">
+                <h4 property="description">Database storage</h4>
+                <p>
+                    For storing the data we use the MongoDb which is a NoSql database. Data is stored as a JSON tree.
+                </p>
+                <p>
+                    The MongoDb database is a physical container for collections. Each database gets its own set of files on the file system.
+                </p>
+                <p>
+                    Database structure:
+                </p>
+               <pre><code>
+               {"_id":"5cef875a8b32e349884f98b3",
+               "fullName":"stefanel",
+               "username":"ionel",
+               "password":"DA0D222EBB2CC112D6BE729E4DB94526",
+               "email":"stefanel.turcu@yahoo.ru",
+               "topics":[],"__v":0}
+                        </code></pre>
+
+            </section>
+           
+            <section id="hosting" role="contentinfo">
+                <h4 property="description">Hosting</h4>
+                <p property="text">
+                    For hosting our site we use Heroku, is a fully-managed hosting service.                     
+                </p>
+                <p property="text">
+                    We have chosen this domain for hosting our application because:
+                    <ul>
+                        <li>It’s free</li>
+                        <li>The deployment process is quick and simple, we build a Docker container and deploy it on Heroku.</li>
+                    </ul>
+                </p>
+                <p class="issue"  property="text"> 
+                    Our site is live at the <a href="https://atter-8d2e1.firebaseapp.com/">url</a>
+                </p>
+            </section>
+        </section>
+    </section>
+  </body>
+</html>
