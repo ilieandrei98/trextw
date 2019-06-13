@@ -18,8 +18,7 @@ export default class General {
   }
 
   loadArticles() {
-    this.checkElement('filters-container').then(element => {      
-          //document.getElementsByClassName("filters-container")[0].classList.add("not-none-class");
+    this.checkElement('filters-container').then(element => {
           document.getElementsByClassName("filters-container")[0].style.display = "none";
           document.getElementsByClassName("feed-title")[0].style.display = "none";
           document.getElementsByClassName("loader-overlay")[0].style.display = "block";

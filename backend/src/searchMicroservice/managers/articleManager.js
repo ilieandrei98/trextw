@@ -31,6 +31,10 @@ class ArticleManager {
   }
 
   async wheelOfFortune(articles, limit) {
+    if(limit <= 0) {
+      return [];
+    }
+
     if (limit > articles.length) {
       return articles;
     }
