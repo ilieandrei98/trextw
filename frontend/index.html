@@ -23,6 +23,26 @@
     <script type="module" src='src/js/app.js'></script>
 
     <script>
+        function registerHandlersForGroups(){
+            var options = document.getElementsByClassName("group-option");
+
+            for(var i = 0 ;i< options.length; i++){
+                options[i].addEventListener('click', function(e){
+                    var id = e.target.id;
+                    if(!id){
+                        id = e.target.parentNode.id;
+                    }
+
+                    fetch(window.endPoint + "/api/articles/preferences/group/" + id)
+                    .then(res => res.json())
+                    .then(data => {
+                        articleHelper.setArticles(data);
+                        addArticlesToPage(data);
+                    });
+                });
+            }
+        }
+
         var articleHelper = {
             articles: [],
             getArticles : function(){
@@ -187,11 +207,12 @@
                     this.myGroups = rsp;
                     rsp.forEach(group => {
                         document.getElementById("group-list").innerHTML +=
-                            `<div class="option">
+                            `<div class="option group-option" id="${group._id}">
                         <div class="circle">${group.groupName[0]}</div>
                         <div class="option-name">${group.groupName}</div>
                     </div>`;
                     });
+                    registerHandlersForGroups();
                 })
             }
 
