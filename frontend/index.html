@@ -32,7 +32,7 @@
                     if(!id){
                         id = e.target.parentNode.id;
                     }
-
+                    document.getElementById("feed-title").innerText=e.target.innerText;
                     fetch(window.endPoint + "/api/articles/preferences/group/" + id)
                     .then(res => res.json())
                     .then(data => {
@@ -207,7 +207,7 @@
                     this.myGroups = rsp;
                     rsp.forEach(group => {
                         document.getElementById("group-list").innerHTML +=
-                            `<div class="option group-option" id="${group._id}">
+                            `<div class="option group-option" id="${group._id}" name="${group.groupName}">
                         <div class="circle">${group.groupName[0]}</div>
                         <div class="option-name">${group.groupName}</div>
                     </div>`;
